@@ -26,9 +26,9 @@ and open the template in the editor.
             $highlight = $wg->getWin($aantalGetallen, $rijen, $aantalWin);            
             for($p=0; $p<$aantalWin; $p++) {
                 $highlightx = $highlight[$p]-1; 
-                $winRest = (($highlightx-($highlightx%$aantalGetallen))/$aantalGetallen)+1;
+                $winRest = (($highlightx-($highlightx%$aantalGetallen))/$aantalGetallen)+(1);
                 $winMod = $highlight[$p]%$aantalGetallen; 
-                if ($winMod==0) {$winMod=7;}
+                if ($winMod==0) {$winMod=$aantalGetallen;}
                 ?>
             tr:nth-child(<?php print($winRest); ?>) td:nth-child(<?php print($winMod); ?>) {
                 background-color: yellow;
@@ -41,7 +41,7 @@ and open the template in the editor.
         <table>
                 <?php for($k=0; $k<$rijen; $k++) { ?>
                 <tr>
-                <?php for($i=0; $i<$aantalGetallen; $i++) {print("<td>" . (($i+1)+(7*$k)) . "</td>");} ?>
+                <?php for($i=0; $i<$aantalGetallen; $i++) {print("<td>" . (($i+1)+($aantalGetallen*$k)) . "</td>");} ?>
                 </tr>
                 <?php } ?>
         </table>
