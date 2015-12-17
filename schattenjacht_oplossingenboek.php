@@ -42,6 +42,7 @@ if (isset($_GET["kiesdeur"])) {
         <style>
             img { border-width: 0px;}
             .inactief {pointer-events: none;} /* EXTRA */
+            .image {text-decoration: none;}
         </style>
     </head>
     <body>
@@ -50,7 +51,7 @@ if (isset($_GET["kiesdeur"])) {
         <?php
         for ($i = 1; $i <= 7; $i++) {
             ?>
-            <a href="schattenjacht_oplossingenboek.php?kiesdeur=<?php print($i);?>" 
+            <a class="image" href="schattenjacht_oplossingenboek.php?kiesdeur=<?php print($i);?>" 
                 <?php if(isset($msg)) {print('class="inactief"');} ?> > <!-- EXTRA -->
                 <?php
                 if ($_SESSION["deurenReeks"][$i] == 0) {

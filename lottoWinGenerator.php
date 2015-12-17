@@ -19,8 +19,8 @@ and open the template in the editor.
             table, td {border: 1px solid black;}
             td {background-color: lightgray;}
             <?php
-            $aantalGetallen = 7;  
-            $rijen = 6; 
+            $aantalGetallen = 5;  
+            $rijen = 9; 
             $aantalWin = 6; 
             $wg = new WinnendeGetallen(); 
             $highlight = $wg->getWin($aantalGetallen, $rijen, $aantalWin);            
@@ -36,9 +36,9 @@ and open the template in the editor.
             <?php } ?>
         </style>
     </head>
-    <body>
+    <body title="body">
         <?php print_r($highlight); ?>
-        <table>
+        <table alt="lottotabel" title="lottotabel">
                 <?php for($k=0; $k<$rijen; $k++) { ?>
                 <tr>
                 <?php for($i=0; $i<$aantalGetallen; $i++) {print("<td>" . (($i+1)+($aantalGetallen*$k)) . "</td>");} ?>
