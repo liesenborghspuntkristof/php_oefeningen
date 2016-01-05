@@ -1,7 +1,12 @@
 <?php
 //Rekening.php
 
-abstract class Rekening {
+interface Omschrijving {
+    
+    public function getOmschrijving(); 
+}
+
+abstract class Rekening implements Omschrijving {
     private $rekeningnummer;
     private $rekeningsaldo;  
     
@@ -34,8 +39,14 @@ class Zichtrekening extends Rekening {
     public function voerIntrestDoor() {
         parent::stort (parent::getSaldo() * self::$interest);
     }
+    
+        public function getOmschrijving() {
+        echo "Kortetermijnrekening";
+    }
 
 }
+
+
 
 class Spaarrekening extends Rekening {
     
@@ -47,6 +58,10 @@ class Spaarrekening extends Rekening {
     
     public function voerIntrestDoor() {
         parent::stort(parent::getSaldo() * self::$interest);
+    }
+    
+    public function getOmschrijving() {
+        echo "Langetermijnrekening";
     }
 }
 
@@ -67,6 +82,7 @@ class Spaarrekening extends Rekening {
 			print("Het saldo is: " .$zichtrek->getSaldo() . "<br />");
 			$zichtrek->voerIntrestDoor();
 	print("Het saldo is: " .$zichtrek->getSaldo() . "<br />");
+        $zichtrek->getOmschrijving(); 
 			?>
 		</h1>
 		<h1>
@@ -77,6 +93,7 @@ class Spaarrekening extends Rekening {
 			print("Het saldo is: " .$spaarrek->getSaldo() . "<br />");
 			$spaarrek->voerIntrestDoor();
 	print("Het saldo is: " .$spaarrek->getSaldo() . "<br />");
+        $spaarrek->getOmschrijving();
 			?>
 		</h1>            
 	</body>
