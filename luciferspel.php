@@ -2,6 +2,8 @@
 
 session_start();
 
+if (!isset($_SESSION["dispAantal"])) {$_SESSION["dispAantal"]= 7;}
+
 if (isset($_GET["reset"]) && $_GET["reset"] == 1) {
     unset($_SESSION["dispAantal"]); 
     $_SESSION["dispAantal"]= 7;
