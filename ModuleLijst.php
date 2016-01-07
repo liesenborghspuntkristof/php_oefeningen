@@ -1,46 +1,55 @@
 <?php
+//ModuleLijst.php
+require_once("Module.php");
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of ModuleLijst
- *
- * @author kristof.liesenborghs
- */
 class ModuleLijst {
 
-	public function getLijst($minWaarde, $maxWaarde) {
-		$dbh = new PDO("mysql:host=localhost;dbname=cursusphp;charset=utf8", 
-			"cursusgebruiker", "cursuspwd");
+	private $dbConn;
+	private $dbUsername;
+	private $dbPassword;
+	
+	public function __construct() {
+		$this->dbConn = "mysql:host=localhost;dbname=cursusphp;charset=utf8";
+		$this->dbUsername = "cursusgebruiker";
+		$this->dbPassword = "cursuspwd";		
+	}
+	
+	public function getLijst() {
+		$sql = "select id, naam, prijs from modules order by naam";
+		$dbh = new PDO($this->dbConn, $this->dbUsername, $this->dbPassword);
+		$resultSet = $dbh->query($sql);
 
-		//positionele params
-		//$sql = "select naam, prijs from modules  
-		//	where prijs >= ? and prijs <= ? "; 	
-		//$stmt = $dbh->prepare($sql);
-		//$stmt->execute(array($minWaarde, $maxWaarde));
-		//$resultSet = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                //var_dump($resultSet); 
-                //
-		//benoemde params
-		$sql = "select naam, prijs from modules  
-			where prijs >= :minprijs and prijs <= :maxprijs order by prijs";
-		$stmt = $dbh->prepare($sql);
-		$stmt->execute(array(':minprijs' => $minWaarde, ':maxprijs' => $maxWaarde)); 
-		$resultSet = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                //var_dump($resultSet); 
-
-		$lijst= array();
+		$lijst = array();
 		foreach ($resultSet as $rij) {
-			$naam = $rij["naam"] . " (" .	$rij["prijs"] . " euro)";
-			array_push($lijst, $naam);
+			$module = new Module($rij["id"], $rij["naam"], $rij["prijs"]);
+			array_push($lijst, $module);
 		}
-		
 		$dbh = null;
 		return $lijst;
 	}
 	
+	public function getModuleById($id) {
+		$sql = "select naam, prijs from modules where id = :id";
+		$dbh = new PDO($this->dbConn, $this->dbUsername, $this->dbPassword);
+
+		$stmt = $dbh->prepare($sql);
+		$stmt->execute(array(':id' => $id));	
+		$rij = $stmt->fetch(PDO::FETCH_ASSOC);	 
+		$module = new Module($id, $rij["naam"], $rij["prijs"]);
+		$dbh = null;
+		return $module;			
+	}
+	
+   public function updateModule($module) {
+		$sql = "update modules set naam = :naam, prijs = :prijs where id = :id";
+       	$dbh = new PDO($this->dbConn, $this->dbUsername, $this->dbPassword);
+
+     	$stmt = $dbh->prepare($sql);
+ 		$resultSet = $stmt->execute(array(
+            ':naam' => $module->getNaam(),
+            ':prijs' => $module->getPrijs(),
+            ':id' => $module->getId()));
+        $dbh = null;	
+	}
 }
+

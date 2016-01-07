@@ -6,6 +6,16 @@ require_once 'filmLijst.php';
 
 ?>
 
+        <?php 
+        if (isset($_POST["submit"])){
+        $titel = $_POST["filmtitel"]; 
+        $duurtijd = $_POST["duurtijd"]; 
+        $flijst = new FilmToevoegen(); 
+        $flijst->createFilm($titel, $duurtijd);
+        unset($_POST["submit"]); 
+        }
+        ?>
+
 <!DOCTYPE html>
 
 <!--
@@ -43,14 +53,6 @@ and open the template in the editor.
                 <input type="submit" value="Toevoegen" name="submit">
         </form>
         
-        <?php 
-        if (isset($_POST["submit"])){
-        $titel = $_POST["filmtitel"]; 
-        $duurtijd = $_POST["duurtijd"]; 
-        $flijst = new FilmToevoegen(); 
-        $flijst->createFilm($titel, $duurtijd);
-        unset($_POST["submit"]); 
-        }
-        ?>
+
     </body>
 </html>
