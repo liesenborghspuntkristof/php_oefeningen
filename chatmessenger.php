@@ -6,6 +6,9 @@ require_once 'Chatlog.php';
 
 $chatlog = new Chatlog();
 
+if (!isset($_SESSION["check"])) {
+    $_SESSION["check"] = "dkjfiejkdjfiekmmqmqmqeii425"; 
+}
 
 if (!isset($_SESSION["nickname"])) {
     $user = rand(111, 999);
