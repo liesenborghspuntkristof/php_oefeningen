@@ -7,13 +7,20 @@ require_once 'Chatlog.php';
 $chatlog = new Chatlog();
 
 if (!isset($_SESSION["check"])) {
-    $_SESSION["check"] = "dkjfiejkdjfiekmmqmqmqeii425"; 
+   $_SESSION["check"] = "dkjfiejkdjfiekmmqmqmqeii425"; 
 }
 
-if (!isset($_SESSION["nickname"])) {
-    $user = rand(111, 999);
-    $_SESSION["nickname"] = "p" . $user;
-}
+//if (!isset($_SESSION["nickname"])) {
+//    $user = rand(111, 999);
+//    $_SESSION["nickname"] = "p" . $user;
+//}
+
+//boven= nickname generator, onder= nickname form; 
+
+
+
+if (isset($_GET["action"]) && $_GET["action"] == "newnick") {$_SESSION["nickname"] = $_POST["nick"]; }
+
 
 if (isset($_GET["action"]) && $_GET["action"] == "new" && $_SESSION["check"] != $_POST["bericht"] . "=old"){
     $chatlog->createChat($_SESSION["nickname"], $_POST["bericht"]); 
