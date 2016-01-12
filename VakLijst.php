@@ -42,6 +42,19 @@ class VakLijst {
         print_r($lijst); 
     }
     
+    public function getRijnummer ($kolomnummer) {
+        $sql = "SELECT MIN(rijnummer) FROM vieropeenrij_spelbord WHERE kolomnummer = :kolomnummer AND status = 0";
+        $dbh = new PDO ($this->dbConn, $this->dbUsername, $this->dbPassw);
+        
+        $stmt = $dbh->prepare($sql); 
+        $stmt->execute(array(':kolomnummer' => $kolomnummer));
+        $rijnummer = $stmt->fetch(PDO::FETCH_ASSOC);  
+        $dbh = null;
+        return $rijnummer;
+ 
+    }
+    
+    
     public function updateVak ($rijnummer, $kolomnummer, $kleur) {
         if ($kleur == "geel") {
         $sql = "update vieropeenrij_spelbord set status = '9221' where kolomnummer = :kolomnummer and rijnummer = :rijnummer";

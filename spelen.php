@@ -14,21 +14,21 @@ if (!isset($_SESSION["check"])) {$_SESSION["check"] = "dfjiejkdfjiekkkekejklme10
 
 if (isset($_GET["kleur"]) && $_GET["kleur"] == "geel") {
     $_SESSION["kleur"] = "geel";
-    for ($t=0; $t<7; $t++) { $_SESSION[$t]=1; }
-     print_r($rij);
+     
 }
 
 if (isset($_GET["kleur"]) && $_GET["kleur"] == "rood") {
     $_SESSION["kleur"] = "rood";
-    for ($t=0; $t<7; $t++) { $_SESSION[$t]=1; }
-    print_r($rij);
+      
 }
 
-if (isset($_GET["click"]) ) {    
-    $kolomnummer = $_GET["click"];
-    $kolom = (int) $kolomnummer; 
-    $rijnummer = $_SESSION[$kolom]; 
-    $lijst = $vaklijst->updateVak($rijnummer, $kolomnummer, $_SESSION["kleur"]);   
+if (isset($_GET["click"]) ) {  
+    echo $_GET["click"], gettype($_GET["click"]), "</br>"; 
+    $kolomnummer = (int)$_GET["click"];
+    echo $kolomnummer, gettype($kolomnummer), "</br>";
+    $lijst = $vaklijst->getRijnummer($kolomnummer); 
+    print_r ($lijst); 
+    $up = $vaklijst->updateVak($lijst, $kolomnummer, $_SESSION["kleur"]); 
 }
 
 ?>
