@@ -43,10 +43,10 @@ class VakLijst {
     }
     
     public function updateVak ($rijnummer, $kolomnummer, $kleur) {
-        if ($kleur = "geel") {
+        if ($kleur == "geel") {
         $sql = "update vieropeenrij_spelbord set status = '9221' where kolomnummer = :kolomnummer and rijnummer = :rijnummer";
         }
-        if ($kleur = "rood") {
+        if ($kleur == "rood") {
         $sql = "update vieropeenrij_spelbord set status = '3008' where kolomnummer = :kolomnummer and rijnummer = :rijnummer";
         }        
         $dbh = new PDO ($this->dbConn, $this->dbUsername, $this->dbPassw); 
@@ -55,5 +55,16 @@ class VakLijst {
         $resultSet = $stmt->execute(array(
                 ":rijnummer" => $rijnummer, 
                 ":kolomnummer" => $kolomnummer));
+        
+        $dbh = null;
+    }
+    
+    public function clearVak () {
+        $sql = "update vieropeenrij_spelbord set status = '0'";
+        $dbh = new PDO ($this->dbConn, $this->dbUsername, $this->dbPassw); 
+        
+        $stmt = $dbh->prepare($sql); 
+        $resultSet = $stmt->execute();  
+        $dbh = null;
     }
 }

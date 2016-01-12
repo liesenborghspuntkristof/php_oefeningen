@@ -6,18 +6,29 @@ require_once 'vakLijst.php';
 
 $vaklijst = new VakLijst(); 
 
+if(isset($_GET["action"]) && $_GET["action"] == "clear"){
+    $lijst = $vaklijst->clearVak(); 
+}
+
 if (!isset($_SESSION["check"])) {$_SESSION["check"] = "dfjiejkdfjiekkkekejklme10e"; }
 
 if (isset($_GET["kleur"]) && $_GET["kleur"] == "geel") {
-    $_SESSION["kleur"] = "geel"; 
+    $_SESSION["kleur"] = "geel";
+    for ($t=0; $t<7; $t++) { $_SESSION[$t]=1; }
+     print_r($rij);
 }
 
 if (isset($_GET["kleur"]) && $_GET["kleur"] == "rood") {
-    $_SESSION["kleur"] = "rood"; 
+    $_SESSION["kleur"] = "rood";
+    for ($t=0; $t<7; $t++) { $_SESSION[$t]=1; }
+    print_r($rij);
 }
 
-if (isset($_GET["click"]) && $_GET["click"] != $_SESSION["check"]) {
-    
+if (isset($_GET["click"]) ) {    
+    $kolomnummer = $_GET["click"];
+    $kolom = (int) $kolomnummer; 
+    $rijnummer = $_SESSION[$kolom]; 
+    $lijst = $vaklijst->updateVak($rijnummer, $kolomnummer, $_SESSION["kleur"]);   
 }
 
 ?>
@@ -57,12 +68,10 @@ and open the template in the editor.
             }
             if ($kolomnummer == 7) {echo ("</tr>");}
             $teller = $rijnummer;
-            }
-             
-            
-            
-        
+            }                                          
         ?>
         </table>
+        <p><a href="spelen.php">Vernieuw bord</a></p>
+        <p><a href="spelen.php?action=clear">Spel herstarten</a></p>
     </body>
 </html>
