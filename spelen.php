@@ -23,12 +23,13 @@ if (isset($_GET["kleur"]) && $_GET["kleur"] == "rood") {
 }
 
 if (isset($_GET["click"]) ) {  
-    echo $_GET["click"], gettype($_GET["click"]), "</br>"; 
+    //echo $_GET["click"], gettype($_GET["click"]), "</br>"; 
     $kolomnummer = (int)$_GET["click"];
-    echo $kolomnummer, gettype($kolomnummer), "</br>";
+    //echo $kolomnummer, gettype($kolomnummer), "</br>";
     $lijst = $vaklijst->getRijnummer($kolomnummer); 
-    print_r ($lijst); 
-    $up = $vaklijst->updateVak($lijst, $kolomnummer, $_SESSION["kleur"]); 
+    //print_r ($lijst); 
+    $rijnummer = $lijst->getRijnummer(); 
+    $up = $vaklijst->updateVak($rijnummer, $kolomnummer, $_SESSION["kleur"]); 
 }
 
 ?>

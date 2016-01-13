@@ -43,14 +43,15 @@ class VakLijst {
     }
     
     public function getRijnummer ($kolomnummer) {
-        $sql = "SELECT MIN(rijnummer) FROM vieropeenrij_spelbord WHERE kolomnummer = :kolomnummer AND status = 0";
+        $sql = "SELECT MIN(rijnummer) as onderste FROM vieropeenrij_spelbord WHERE kolomnummer = :kolomnummer AND status = :status";
         $dbh = new PDO ($this->dbConn, $this->dbUsername, $this->dbPassw);
-        
+        $status = 0; 
         $stmt = $dbh->prepare($sql); 
-        $stmt->execute(array(':kolomnummer' => $kolomnummer));
-        $rijnummer = $stmt->fetch(PDO::FETCH_ASSOC);  
+        $stmt->execute(array(':kolomnummer' => $kolomnummer, ':status' => $status));
+        $rij = $stmt->fetch(PDO::FETCH_ASSOC); 
+        $voer = new VierOpEenRijVak($rij["onderste"], $kolomnummer, $status); 
         $dbh = null;
-        return $rijnummer;
+        return $voer;
  
     }
     
