@@ -4,6 +4,7 @@ require_once 'boodschapLijst.php';
 session_start(); 
 
 $boodschaplijst = new boodschapLijst();
+
 if (isset($_GET["action"]) && $_GET["action"] == "verzend") {  
     $boodschaplijst->createBoodschap($_POST["auteur"], $_POST["boodschap"]); 
 }

@@ -40,5 +40,9 @@ class Boodschap {
     public function getDatum() {
         return $this->datum;
     }
+    
+    
+    
+    
 }
 
