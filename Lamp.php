@@ -36,5 +36,9 @@ class Lamp {
         }
          
     }
+    
+    function cheatStatus(){
+        $this->status = "off"; 
+    } 
 
 }
