@@ -23,6 +23,7 @@ and open the template in the editor.
                 <tr>
                     <th>Titel</th>
                     <th>Genre</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,10 +32,15 @@ and open the template in the editor.
                     ?>
                     <tr>
                         <td>
+                            <a href="updateboek.php?id=<?php print ($boek->getId()); ?>">
                             <?php print($boek->getTitel()); ?>
+                            </a>
                         </td>
                         <td>
                             <?php print($boek->getGenre()->getGenreNaam()); ?>
+                        </td>
+                        <td>
+                            <a href="verwijderboek.php?id=<?php print($boek->getId()); ?>">verwijder</a>
                         </td>
                     </tr>
                     <?php
@@ -43,6 +49,8 @@ and open the template in the editor.
             </tbody>
 
         </table>
+        </br>
+        <a href="voegboektoe.php">Nieuwe toevoegen</a>
         <?php
         // put your code here
         ?>
