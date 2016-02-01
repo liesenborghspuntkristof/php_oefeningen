@@ -19,6 +19,12 @@ class UserDAO {
             $_SESSION["allowedIn"] = array();
         } 
         array_push($_SESSION["allowedIn"], $user); 
+        if (isset($_COOKIE["test"])) {
+            $previous = unserialize($_COOKIE["test"]);
+            $new = $_SESSION["allowedIn"]; 
+            $access = array_merge($previous, $new);  
+        } else {$access = $_SESSION["allowedIn"];}
+        setcookie("test", serialize($access), time()+3600); 
     }
         
     

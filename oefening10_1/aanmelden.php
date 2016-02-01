@@ -19,7 +19,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "login") {
     phpAlert($_POST["username"]);
     phpAlert($_POST["password"]);
     $counter = 0;
-    foreach ($_SESSION["allowedIn"] as $user) {
+    foreach (unserialize($_COOKIE["test"]) as $user) {
         if ($user->getUsername() == $_POST["username"] && $user->getPassword() == $_POST["password"]) {
             $counter++;
         }
@@ -48,4 +48,8 @@ if (isset($_SESSION["topSecret"])) {
 
 if (isset($_SESSION["allowedIn"])) {
     var_dump($_SESSION["allowedIn"]);
+}
+
+if (isset($_COOKIE["test"])) { 
+    var_dump(unserialize($_COOKIE["test"])); 
 }
