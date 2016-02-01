@@ -1,6 +1,13 @@
 <?php
+
 require_once 'business/UserService.php';
-/* 
+require_once 'debugger.php';
+
+session_start();
+
+
+
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -9,15 +16,20 @@ require_once 'business/UserService.php';
 
 
 if (isset($_GET["action"]) && $_GET["action"] == "login") {
-    $counter = 0; 
-    foreach ($_COOKIE["allowedIn"] as $user) {
+    phpAlert($_POST["username"]);
+    phpAlert($_POST["password"]);
+    $counter = 0;
+    foreach ($_SESSION["allowedIn"] as $user) {
         if ($user->getUsername() == $_POST["username"] && $user->getPassword() == $_POST["password"]) {
-            $counter++; 
+            $counter++;
         }
-        if ($counter == 1) {$_SESSION["topSecret"] = "access granted";}
     }
-    header ("location:toongeheim.php"); 
-    exit(0); 
+    if ($counter == 1) {
+        $_SESSION["topSecret"] = "access granted";
+    }
+    phpAlert($_SESSION["topSecret"]);
+    header("location:toongeheim.php");
+    exit(0);
 }
 
 //if (isset($_GET["action"]) && $_GET["action"] == "new") {
@@ -29,4 +41,11 @@ if (isset($_GET["action"]) && $_GET["action"] == "login") {
 
 include 'presentation/aanmeldenForm.php';
 
-var_dump($_COOKIE["allowedIn"]);
+if (isset($_SESSION["topSecret"])) {
+    echo ($_SESSION["topSecret"]);
+}
+
+
+if (isset($_SESSION["allowedIn"])) {
+    var_dump($_SESSION["allowedIn"]);
+}

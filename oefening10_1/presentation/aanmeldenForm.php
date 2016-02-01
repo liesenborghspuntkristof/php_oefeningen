@@ -17,7 +17,7 @@ and open the template in the editor.
     <body>
         <form method="post" action="aanmelden.php?action=login">
             <input type="text" name="username" placeholder="uw gebruikersnaam" autofocus="" required="">
-            <input type="password" name="password" placeholder="uw wachtwoord">
+            <input type="password" name="password" placeholder="uw wachtwoord" required="">
             <input type="submit" value="aanmelden">           
         </form>
         <a href="nieuwegebruiker.php">nieuwe gebruiker</a>

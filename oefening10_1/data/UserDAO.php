@@ -15,8 +15,10 @@ class UserDAO {
     
     public function createUser($username, $password) {
         $user = new User($username, $password); 
-        $_COOKIE ["allowedIn"] = array();
-        array_push($_COOKIE["allowedIn"], $user); 
+        if (!isset($_SESSION["allowedIn"])) {
+            $_SESSION["allowedIn"] = array();
+        } 
+        array_push($_SESSION["allowedIn"], $user); 
     }
         
     

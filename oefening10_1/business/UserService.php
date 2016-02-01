@@ -2,6 +2,8 @@
 
 require_once 'data/UserDAO.php';
 
+//session_start();  if you activate session here the controllers don't need a session_start();
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
