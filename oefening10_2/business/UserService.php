@@ -19,20 +19,21 @@ class UserService {
 
     public function storeUser($username, $password) {
         $userDAO = new UserDAO();
-        $userDAO->createUser($username, $password);
+        $newUser = $userDAO->createUser($username, $password);
+        return $newUser; 
     }
 
     public function checkUser($username, $password) {
         $count = 0;
         $userDAO = new UserDAO();
-        $userDAO->getAll();
+        $lijst = $userDAO->getAll();
 
-        foreach ($userDAO as $user) {
+        foreach ($lijst as $user) {
             if ($user->getUsername() == $username && $user->getPassword() == $password) {
                 $count++;
             }
         }
-        if ($count == 1) {
+        if ($count >= 1) {
             $_SESSION["topSecret"] = "access granted"; 
         } else {
             $_SESSION["topSecret"] = "access denied"; 

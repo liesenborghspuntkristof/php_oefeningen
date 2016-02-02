@@ -31,9 +31,9 @@ if (isset($_GET["action"]) && $_GET["action"] == "login") {
 
 include 'presentation/aanmeldenForm.php';
 
-//if (isset($_SESSION["topSecret"])) {
-//    echo ($_SESSION["topSecret"]);
-//}
+if (isset($_SESSION["topSecret"])) {
+    echo ($_SESSION["topSecret"]);
+}
 //
 //
 //if (isset($_SESSION["allowedIn"])) {
