@@ -101,6 +101,10 @@ class BoekDAO {
     }
 
     public function update($boek) {
+        $bestaandBoek = $this->getByTitel($boek->getTitel());
+        if (!is_null($bestaandBoek) && ($bestaandBoek->getId() != $boek->getId())) {
+            throw new TitelBestaatException();
+        }
         $sql = "update mvc_boeken set titel= :titel, genre_id = :genreId where id = :id";
 
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
