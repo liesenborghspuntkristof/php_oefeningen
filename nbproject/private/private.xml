@@ -3,47 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/presentation/updateboekForm.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/debugger.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_2/business/UserService.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/business/BoekService.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/Presentation/nieuwboekForm.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/Presentation/boekenlijst.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/voegboektoe.php</file>
             <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/business/GenreService.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/entities/Boek.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/business/UserService.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/entities/Genre.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/business/BoekService.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/verwijderboek.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/updateboek.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/Presentation/nieuwboekForm.twig</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/bootstrap.php</file>
             <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/toonalleboeken.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10-project1/toonallepersonen.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/entities/User.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10-project1/data/DBConfig.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/presentation/geheimeinformatie.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10-project1/presentation/personenlijst.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/data/BoekDAO.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10-project1/entities/Persoon.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/toongeheim.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10-project1/data/PersoonDAO.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_2/nieuwegebruiker.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_2/entities/User.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/tester.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_2/aanmelden.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_2/toongeheim.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/verwijderboek.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/nieuwegebruiker.php</file>
             <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/presentation/boekenlijst.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/test.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/presentation/nieuwboekForm.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/presentation/nieuwegebruikerForm.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_2/data/UserDAO.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10-project1/business/PersoonService.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/presentation/aanmeldenForm.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/aanmelden.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/data/DBConfig.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_1/data/UserDAO.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/data/GenreDAO.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/voegboektoe.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/oefening10_2/data/DBConfig.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/VakLijst.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofdstuk10_project2/updateboek.php</file>
-            <file>file:/C:/xampp/htdocs/php_oefeningen/spelen.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/toonalleboeken.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/Presentation/updateboekForm.php</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/Presentation/updateboekForm.twig</file>
+            <file>file:/C:/xampp/htdocs/php_oefeningen/hoofstuk10_projectTwig/Presentation/boekenlijst.twig</file>
         </group>
     </open-files>
 </project-private>
