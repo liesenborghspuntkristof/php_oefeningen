@@ -48,7 +48,7 @@ class ChallengeDAO {
         $rij = $stmt->fetch(PDO::FETCH_ASSOC);
         $user = User::create($rij["user_username"], $rij["password"], $rij["name"], $rij["surname"], $rij["email"]);
         $challenge = Challenge::create($challengeId, $user, $rij["startdatum"], $rij["einddatum"], $rij["startgewicht"], $rij["eindgewicht"]);
-        var_dump($challenge);
+//        var_dump($challenge);
         $dbh = null;
         return $challenge;
     }

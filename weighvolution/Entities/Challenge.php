@@ -35,7 +35,7 @@ class Challenge {
         if (!isset(self::$idMap[$challengeId])){
             self::$idMap[$challengeId] = new Challenge($challengeId, $user, $startDatum, $eindDatum, $startGewicht, $eindGewicht); 
         }
-        return self::$idMap;
+        return self::$idMap[$challengeId];
     }
 
 
