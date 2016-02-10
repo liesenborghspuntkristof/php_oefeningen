@@ -1,0 +1,82 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 10, 2016, 10:04:33 AM
+    Author     : kristof.liesenborghs
+*/
+
+
+/*  #585858 -> grijs; 
+    #118C4E -> fel groen;
+    #C1E1A6 -> pastel groen; 
+    #FF9009 -> oranje;         */
+
+
+html {margin: 0;}
+body {
+    margin: 0; 
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-family: sans-serif; 
+    position: relative; 
+}
+
+input:focus {background-color: #C1E1A6;}
+
+#login { 
+    text-align: right;
+    background-color: #585858;
+}
+
+#login input {
+    margin: 1em 0.5em;
+    width: 10em;
+    text-align: center;
+    padding: 0.2em 0.5em; 
+}
+
+#login input[type="submit"] {
+    border-radius: 0.2em; 
+    border: 1px outset #585858;
+    background-color: #C1E1A6;
+    color: #585858;
+    font-weight: bold;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+#welkom {
+    text-align: center;
+    margin: 1em auto;
+    color: #585858; 
+}
+
+#nieuw {
+/*    border: 1px solid black;*/
+    display: block;
+    width: auto;
+    margin: 1em auto;
+    color: #585858; 
+}
+
+#nieuw input {
+    display: block;
+    margin: 1em auto;
+    width: 30em;
+    text-align: center;
+    padding: 0.5em; 
+}
+
+#nieuw input[type="submit"] {
+    border-radius: 0.2em; 
+    border: 1px outset #585858;
+    background-color: #C1E1A6;
+    color: #585858;
+    width: 31em;
+    font-weight: bold;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}

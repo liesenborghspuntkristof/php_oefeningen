@@ -2,6 +2,9 @@
 require_once 'Data/UserDAO.php';
 require_once 'Data/ChallengeDAO.php';
 require_once 'Data/WeighpointDAO.php';
+require_once 'Data/ViewerDAO.php';
+require_once 'algemenefuncties.php';
+require_once 'Business/UserService.php';
 
 $userDAO = new UserDAO();
 $userLijst = $userDAO->getAll();
@@ -11,6 +14,9 @@ $challengeLijst = $challengeDAO->getAll();
 
 $weighpointDAO = new WeighpointDAO();
 $weighpointLijst = $weighpointDAO->getAll();
+
+$viewerDAO = new ViewerDAO();
+$viewerLijst = $viewerDAO->getAll();
 ?>
 
 
@@ -36,8 +42,8 @@ and open the template in the editor.
         print_r($challengeLijst);
         print("</pre>");
         foreach ($challengeLijst as $challenge) {
-        $username = $challenge->getUser()->getUsername();
-        print $username;
+            $username = $challenge->getUser()->getUsername();
+            print $username;
         }
 
         $challengeDAO = new ChallengeDAO();
@@ -52,10 +58,30 @@ and open the template in the editor.
         print("</pre>");
         foreach ($weighpointLijst as $weighpoint) {
             $challengeId = $weighpoint->getChallenge()->getChallengeId();
-            echo $challengeId . "</br>"; 
+            echo $challengeId . "</br>";
+        }
+        print("<pre>");
+        print_r($viewerLijst);
+        print("</pre>");
+        ?>
 
-            }
+        <?php
+        $string = "foxbarrelinc";
+        $ascii = string_to_ascii($string);
+        echo $string . "</br>";
+        var_dump($ascii);
+        var_dump (string_to_ascii("liesenborghs"));
+        $check = check_valid_input($string);
+        var_dump($check);
+        var_dump(check_valid_input($string)); 
         
+        $fox = $userDAO->getByUsername("foxbarrelinc"); 
+        var_dump($fox); 
+
+
+        $userSvc = new UserService();
+        $service = $userSvc->checkLogin("foxbarelinc", "admin"); 
+        var_dump($service); 
         ?>
 
 

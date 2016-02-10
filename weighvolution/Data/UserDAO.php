@@ -28,5 +28,19 @@ class UserDAO {
         $dbh = null;
         return $lijst;
     }
+    
+    public function getByUsername($username) {
+
+        $sql = "SELECT username, password, name, surname, email FROM user WHERE username = :username";
+
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':username' => $username));
+        $rij = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = User::create($rij["username"], $rij["password"], $rij["name"], $rij["surname"], $rij["email"]);
+        $dbh = null;
+        return $user;
+    }    
 
 }
