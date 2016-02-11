@@ -1,6 +1,6 @@
 <?php
 
-function string_to_ascii($string) {
+function string_to_ascii2($string) {
     $ascii = NULL;
 
     for ($i = 0; $i < strlen($string); $i++) {
@@ -115,7 +115,7 @@ and open the template in the editor.
         </div>
         <?php
         $string = "Kristof Liesenborghs";
-        $test = string_to_ascii($string);
+        $test = string_to_ascii2($string);
         echo "ASCII '" . $string . "' = " . $test;
         $mCode = string_to_morse($string);
         echo "<pre>morse '" . $string . "' = " . $mCode . "</pre>";

@@ -15,19 +15,19 @@ and open the template in the editor.
         <link href="Presentation/css/main.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>       
-        <form id="login" method="post" action="index.php?action=login">           
+        <form id="login" method="post" action="aanmelden.php?action=login">           
             <input type="text" placeholder="Username" required="" autofocus="" name="username">
             <input type="password" placeholder="Password" required="" name="password">
             <input type="submit" value="login">
         </form>
         <h1 id="welkom">Welkom</h1>
-        <form id="nieuw" method="post" action="nieuwegebruiker.php?action=new">
-            <input type="text" placeholder="Username" required="" name="username">
+        <form id="nieuw" method="post" action="aanmelden.php?action=new">
+            <input type="text" placeholder="Username  (min. 6 characters)" required="" name="username">
             <input type="text" placeholder="First name" required="" name="name">
             <input type="text" placeholder="Last name" required="" name="surname">
             <input type="email" placeholder="Email" required="" name="email">
             <input type="password" placeholder="Password (min. 6 characters, min. 1 number, min. 1 Capital)" required="" name="password">
-            <input type="submit" value="Join now"
+            <input type="submit" value="Join now">
         </form>
     </body>
 </html>
