@@ -19,5 +19,5 @@ if (!isset($_SESSION[redirect_arrayName()]) || $_SESSION[redirect_arrayName()] !
     header("location:aanmelden.php");
     exit(0);
 } else {
-    include 'timeTillXmas.php';
+    header("location:weighvolution.php");
 }

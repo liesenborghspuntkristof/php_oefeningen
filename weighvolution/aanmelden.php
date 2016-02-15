@@ -22,6 +22,7 @@ if (isset($_GET["action"]) && $_GET["action"] == "login") {
             $service = $userSvc->checkLogin($_POST["username"], $_POST["password"]);
             if ($service == "access granted") {
                 $_SESSION[redirect_arrayName()] = redirect_par();
+                $_SESSION["username"] = $_POST["username"];  
                 header("location:index.php");
                 exit(0);
             }
@@ -45,6 +46,11 @@ if (isset($_GET["action"]) && $_GET["action"] == "new") {
             $_SESSION["warningmsg"] = $ex->getMessage();
         }
     }
+}
+
+if (isset($_GET["action"]) && $_GET["action"] == "logout") {
+    session_unset(); 
+    session_destroy(); 
 }
 
 include 'Presentation/loginForm.php';

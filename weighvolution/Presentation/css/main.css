@@ -24,6 +24,13 @@ body {
     position: relative; 
 }
 
+i {font-family: sans-serif;}
+
+.grijs {color: #585858;}
+.felGroen {color: #118C4E;}
+.pastelGroen {color: #C1E1A6;}
+.oranje {color: #FF9009;}
+
 input:focus {background-color: #C1E1A6;}
 
 #login { 

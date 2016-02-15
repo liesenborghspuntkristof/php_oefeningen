@@ -88,7 +88,7 @@ and open the template in the editor.
         </form>
         <?php
         $height = 500;
-        $width = 500;
+        $width = 1000;
         $startW = 80;
         $endW = 60;
         $mod = $width % $startW;
