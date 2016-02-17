@@ -5,6 +5,8 @@ require_once 'Data/WeighpointDAO.php';
 require_once 'Data/ViewerDAO.php';
 require_once 'algemenefuncties.php';
 require_once 'Business/UserService.php';
+require_once 'Business/ChallengeService.php';
+
 
 $userDAO = new UserDAO();
 $userLijst = $userDAO->getAll();
@@ -99,7 +101,22 @@ and open the template in the editor.
         
         $hashValue = passwordEncrypt("fifafo", "schildp@d"); 
         var_dump($hashValue); 
-
+        
+        $color = randomColor(); 
+        echo "<span style='color:" . $color . "'>" . $color . "</span>" ;
+        
+        $cDAO = new ChallengeDAO(); 
+        $temp_var = $cDAO->getByUsername("foxbarrelinc"); 
+        var_dump($temp_var); 
+        
+        $challengeSvc = new ChallengeService(); 
+        $service = $challengeSvc->getChallegeby("foxbarrelinc"); 
+        var_dump($service); 
+        $bool_temp = $challengeSvc->checkChallenge($service->getUser()->getUsername()); 
+        var_dump($bool_temp); 
+        
+        $wDAO = new WeighpointDAO(); 
+        $points = $wDAO->getPointsByChallengeId($service->getChallengeId());   
 
 
         ?>

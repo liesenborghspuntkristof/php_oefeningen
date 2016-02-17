@@ -71,7 +71,7 @@ function check_at($string) {
         }
     }
     if ($atCounter == 1) {
-        $at = TRUE; 
+        $at = TRUE;
     }
     return $at;
 }
@@ -113,7 +113,23 @@ function redirect_par() {
 }
 
 function passwordEncrypt($username, $password) {
-    $temp = strtoupper(strrev($username));
-    $hashedValue = sha1(sha1($temp) . $password);
-    return $hashedValue;
+    if (defined("CRYPT_BLOWFISH") && CRYPT_BLOWFISH) {
+//        $salt = openssl_random_pseudo_bytes(64); -> random salt = veiliger maar dan moet je die mee opslaan in de database
+//        var_dump($salt); 
+//        $data = crypt($password, $salt); == use blowfish encryption == good
+//        $hashedValue = hash_hmac ('sha256', $data, $key) -> safest = use extra key that is completely hidden = stored on an other virtual server on a the server
+        $salt = strtoupper(strrev($username));
+        $data = crypt($password, $salt);
+        $hashedValue = hash('sha256', $data);
+        return $hashedValue;
+    } else {
+        throw new LogicException("No blowfish for sale, try again or contact support"); 
+    }
+}
+
+
+function randomColor() {
+    $rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
+    $color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
+    return $color;
 }

@@ -20,6 +20,22 @@ and open the template in the editor.
             <?php echo "<span class='pastelGroen'>" . $_SESSION["username"] . "</span>" ?>; 
             <input type="submit" value="logout">
         </form>
+        <div id="graph">
+            <svg height = "<?php echo $height; ?>" width = "<?php echo $width; ?>">
+            <line x1="0" y1="0" x2="0" y2="<?php echo $height; ?>" style="fill:none; stroke:black; stroke-width:3" />
+            <line x1="0" y1="<?php echo $height; ?>" x2="<?php echo $width; ?>" y2="<?php echo $height; ?>" style="fill:none; stroke:black; stroke-width:3" />
+            <polyline points="<?php echo $startIdeaalLijn; ?> <?php echo $EindeIdeaalLijn; ?>" style="fill:none; stroke:red; stroke-width:3"/>
+<!--            <polyline points="<?php // echo $sD . ',' . $sW . ' ' . $eD . ',' . $eW ?>" style="fill:none; stroke:black; stroke-width:3"/>  
+            <polyline points="10,100 50,145 100,188 120,190 200,320 250,200" style="fill:none; stroke:red; stroke-width:3"/>
+            <circle cx="50" cy="145" r="5" stroke="black" stroke-width="1" fill="red" />
+            <a xlink:href="http://www.w3schools.com/svg/" target="_blank">
+                <circle cx="100" cy="188" r="5" stroke="black" stroke-width="1" fill="red" />
+            </a>
+            <text x="0" y="<?php // echo $width; ?>" fill="red">0</text>
+            <text x="10" y="<?php // echo $width; ?>" fill="red">1</text>-->
+            </svg>
+
+        </div>
         <?php
         // put your code here
         ?>

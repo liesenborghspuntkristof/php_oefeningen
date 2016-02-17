@@ -39,7 +39,7 @@ class ChallengeDAO {
     public function getById($challengeId) {
 
         $sql = "select user.username as user_username, password, name, surname, email, startdatum, einddatum, startgewicht, eindgewicht"
-                . "from user, challanges where user.username = challanges.username and challangeID = :challengeId";
+                . " from user, challanges where user.username = challanges.username and challangeID = :challengeId";
 
         $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
 
@@ -53,4 +53,20 @@ class ChallengeDAO {
         return $challenge;
     }
 
+        public function getByUsername($username) {
+
+        $sql = "select user.username as user_username, password, name, surname, email, challangeID, startdatum, einddatum, startgewicht, eindgewicht"
+                . " from user, challanges where user.username = challanges.username and challanges.username = :user"; 
+
+        $dbh = new PDO(DBConfig::$DB_CONNSTRING, DBConfig::$DB_USERNAME, DBConfig::$DB_PASSWORD);
+
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute(array(':user' => $username));
+        $rij = $stmt->fetch(PDO::FETCH_ASSOC);
+        $user = User::create($rij["user_username"], $rij["password"], $rij["name"], $rij["surname"], $rij["email"]);
+        $challenge = Challenge::create($rij["challangeID"], $user, $rij["startdatum"], $rij["einddatum"], $rij["startgewicht"], $rij["eindgewicht"]);
+//        var_dump($challenge);
+        $dbh = null;
+        return $challenge;
+    }
 }
